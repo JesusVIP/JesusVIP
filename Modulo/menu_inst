@@ -93,8 +93,9 @@ echo -e "$barra\n\033[1;32m $(source trans -b pt:${id} "INSTALADOR SQUID ADM-ULT
 fun_ip
 echo -ne " $(source trans -b pt:${id} "Confirme seu ip")"; read -p ": " -e -i $IP ip
 echo -e "$barra\n $(source trans -b pt:${id} "Agora Escolha as Portas que Deseja No Squid")"
-echo -e " $(source trans -b pt:${id} "Escolha As Portas Em Ordem Sequencial Exemplo: 80 8080 8799 3128")"
+echo -e " $(source trans -b pt:${id} "Escolha As Portas, Exemplo: 80 8080 3128")"
 echo -ne " $(source trans -b pt:${id} "Digite as Portas:") "; read portasx
+echo -e "$barra"
 totalporta=($portasx)
 unset PORT
    for((i=0; i<${#totalporta[@]}; i++)); do
@@ -115,6 +116,7 @@ echo -e "$barra"
 fun_bar "apt-get install squid3 -y"
 echo -e "$barra"
 echo -e " $(source trans -b pt:${id} "INICIANDO CONFIGURACAO")"
+echo -e "$barra"
 echo -e "" > /etc/payloads
 #Añadir Host Squid
 payload="/etc/payloads"
@@ -122,6 +124,7 @@ echo -e "" > /etc/payloads
 echo -e " ${txt[219]}"
 echo -e " ${txt[220]}" 
 read -p " $(source trans -b es:${id} "Agregar Host"): " hos
+echo -e "$barra"
 if [[ $hos != \.* ]]; then
 echo -e "\033[1;31m $(source trans -b es:${id} " [!] Host-Squid debe iniciar con "."")\033[0m"
 echo -e "\033[1;31m $(source trans -b es:${id} " Asegurese de agregarlo despues corretamente!")\033[0m"
