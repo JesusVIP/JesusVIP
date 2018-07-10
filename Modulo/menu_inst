@@ -81,10 +81,13 @@ fun_squid  () {
   elif [[ -e /etc/squid3/squid.conf ]]; then
   var_squid="/etc/squid3/squid.conf"
   fi
+  service squid stop > /dev/null 2>&1
+  service squid3 stop > /dev/null 2>&1
   [[ -e $var_squid ]] && {
   echo -e "$barra\n\033[1;32m $(source trans -b es:${id} "REMOVIENDO SQUID")\n$barra"
   fun_bar "apt-get remove squid3 -y"
   service squid stop > /dev/null 2>&1
+  service squid3 stop > /dev/null 2>&1
   echo -e "$barra\n\033[1;32m $(source trans -b pt:${id} "Procedimento Concluido")\n$barra"
   [[ -e $var_squid ]] && rm $var_squid
   return 0
