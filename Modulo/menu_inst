@@ -368,6 +368,10 @@ fun_eth
 service ssh restart > /dev/null 2>&1
 service dropbear restart > /dev/null 2>&1
 echo -e "$barra\n${cor[3]} $(source trans -b pt:${id} "Seu dropbear foi configurado com sucesso")\n$barra"
+mportas > /tmp/portz
+while read portas; do
+[[ $portas = "" ]] && break
+done < /tmp/portz
 #UFW
 for ufww in $(mportas|awk '{print $2}'); do
 ufw allow $ufww > /dev/null 2>&1
