@@ -257,6 +257,10 @@ service ssh restart > /dev/null 2>&1
 service squid3 restart > /dev/null 2>&1
 echo -e " \033[1;32m[OK]"
 echo -e "$barra\n ${cor[3]}$(source trans -b pt:${id} "SQUID CONFIGURADO")\n$barra"
+mportas > /tmp/portz
+while read portas; do
+[[ $portas = "" ]] && break
+done < /tmp/portz
 #UFW
 for ufww in $(mportas|awk '{print $2}'); do
 ufw allow $ufww > /dev/null 2>&1
