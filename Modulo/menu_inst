@@ -94,7 +94,7 @@ fun_squid  () {
   return 0
   }
 #Instalar
-echo -e "$barra\n\033[1;32m $(source trans -b pt:${id} "INSTALADOR SQUID CSM")\n$barra"
+echo -e "$barra\n\033[1;32m $(source trans -b pt:${id} "INSTALADOR SQUID")\n$barra"
 fun_ip
 echo -ne " $(source trans -b pt:${id} "Confirme seu ip")"; read -p ": " -e -i $IP ip
 echo -e "$barra\n $(source trans -b pt:${id} "Agora Escolha as Portas que Deseja No Squid")"
@@ -250,7 +250,7 @@ echo -e "http_port $pts" >> $var_squid
 done
 echo -e "
 #nome
-visible_hostname ADM-CSM
+visible_hostname ADM-ULTIMATE
 
 via off
 forwarded_for off
@@ -284,7 +284,7 @@ fun_dropbear () {
  user -k 443/tcp > /dev/null 2>&1
  return 0
  }
-echo -e "$barra\n\033[1;32m $(source trans -b pt:${id} "INSTALADOR DROPBEAR CSM-FREE")\n$barra"
+echo -e "$barra\n\033[1;32m $(source trans -b pt:${id} "INSTALADOR DROPBEAR")\n$barra"
 echo -e " $(source trans -b es:${id} "DROPBEAR USA EL PUERTO 443")\033[1;37m"
 echo -e "$barra"
    [[ $(mportas|grep 443) != "" ]] && {
